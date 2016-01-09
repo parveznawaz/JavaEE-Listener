@@ -13,7 +13,4 @@
     <param-name>toyota</param-name>
     <param-value>Corolla</param-value>
   </context-param>
-  <listener>
-    <listener-class>com.parvez.MyServletContextListener</listener-class>
-  </listener>
 </web-app>
