@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ListenerTest
@@ -33,7 +34,19 @@ public class ListenerTest extends HttpServlet {
 			response.getWriter().append(aCar.getBrand());
 		else
 			response.getWriter().append("Object is null");
+	
+		
+		HttpSession session=request.getSession(); //creating a new session
+		session.setAttribute("a", 10);
+		int totalUser= MyHttpSessionListener.getTotalUserCounter();
+		response.getWriter().append("Total User : "+totalUser);
+		
+		
+		session.invalidate(); // destroying a session
+		
 	}
+	
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
